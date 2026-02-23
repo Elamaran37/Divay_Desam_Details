@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divya Desam Gnanam - Elamaran</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: #333;
+            background-color: #f0f2f5;
+        }
+
+        header {
+            background: #8e44ad; /* Spiritual Purple */
+            color: #ffffff;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .search-section {
+            text-align: center;
+            padding: 20px;
+            background: #fef9e7;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #f39c12;
+        }
+
+        input {
+            padding: 12px;
+            width: 70%;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #f39c12;
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #e67e22;
+        }
+
+        #resultArea {
+            margin-top: 20px;
+            padding: 20px;
+            border-left: 5px solid #8e44ad;
+            background: #f9f9f9;
+            display: none; /* Hidden until search */
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+            padding: 8px 0;
+        }
+
+        .label { font-weight: bold; color: #8e44ad; }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Dhivya Desam Info Finder</h1>
+        <p>Adiyen Eramanujan dhasan - Elamaran's Digital Service</p>
+    </header>
+
+    <div class="container">
+        <div class="search-section">
+            <h3>Enter Shethram Name</h3>
+            <p>Try: Srirangam, Thiruvallikeni, Kanchi, or Thirupathi</p>
+            <input type="text" id="desamInput" placeholder="Enter Divya Desam name...">
+            <button class="btn" onclick="getDesamDetails()">Generate Details</button>
+        </div>
+
+        <div id="resultArea">
+            <h2 id="resName" style="color:#e67e22;"></h2>
+            <div class="detail-row"><span class="label">Moolavar:</span> <span id="resMoolavar"></span></div>
+            <div class="detail-row"><span class="label">Utsavar:</span> <span id="resUtsavar"></span></div>
+            <div class="detail-row"><span class="label">Thayar:</span> <span id="resThayar"></span></div>
+            <div class="detail-row"><span class="label">Pushkarani:</span> <span id="resPushkarani"></span></div>
+            <div class="detail-row"><span class="label">Vimaanam:</span> <span id="resVimaanam"></span></div>
+            <div class="detail-row"><span class="label">Azhwars:</span> <span id="resAzhwars"></span></div>
+        </div>
+
+        <section style="margin-top:40px;">
+            <h2>About Adiyen</h2>
+            <p>Adiyen Elamaran. Interested in Seshathuvam and Dhivya Prabhandham. This tool is a small kainkaryam to share details of the 108 Divya Desams.</p>
+        </section>
+    </div>
+   <section>
+    <h2>Contact Me</h2>
+    <p>For any service to the Bhagavan and Bhagavathargal, let's connect!</p>
+    
+    <a <a href="mailto:elakkesh10@gmail.com?subject=Kainkaryam%20Inquiry" class="btn">Send an Email</a>
+       Send an Email for Kainkaryam
+    </a>
+</section>
+
+    <footer>
+        <p>&copy; 2026 Divya Desam Seva. Built for Bhagavathargal.</p>
+    </footer>
+
+    <script>
+        // "Smart Data" simulating AI retrieval
+        const desamData = {
+            "srirangam": {
+                name: "Srirangam (Sri Ranganathaswamy Temple)",
+                moolavar: "Sri Ranganathar (Bhujanga Sayanam)",
+                utsavar: "Namperumal",
+                thayar: "Ranganayaki Thayar",
+                pushkarani: "Chandra Pushkarani",
+                vimaanam: "OMkara Vimaanam",
+                azhwars: "All Azhwar"
+            },
+            "thiruvallikeni": {
+                name: "Thiruvallikeni (Parthasarathy Temple)",
+                moolavar: "Venkatakrishnan",
+                utsavar: "Parthasarathy",
+                thayar: "Vedavalli Thayar",
+                pushkarani: "Kairavini Pushkarani",
+                vimaanam: "Ananda Vimaanam",
+                azhwars: "Pey Azhwar, Thirumalisai Azhwar, Thirumangai Azhwar"
+            },
+            "kanchi": {
+                name: "Kanchi (Varadharaja Perumal Temple)",
+                moolavar: "Varadharaja Perumal (Devaraja)",
+                utsavar: "Devaperumal",
+                thayar: "Perundevi Thayar",
+                pushkarani: "Anantha Saras",
+                vimaanam: "Punyakoti Vimaanam",
+                azhwars: "Thirumangai Azhwar, Bhoothath Azhwar, Pey Azhwar"
+            },
+         "thirupathi": {
+             name: "ThiruVengadam(Thirumala)",
+             moolavar: "ThiruVengadamudaiyan(Sri Nivasa Perumal) or Sri Venkateswara",
+             utsavar: "Sri Malayaappa Swamy",
+             thayar: "Alarmel mangai Thayar",
+             pushkarani: "Swamy Pushkarani",
+             vimaanam: "Ananda Nilaya Vimaanam",
+             azhwars: "All Azhwars(except Thondaradipodiazhwar)"
+        },
+        };
+
+
+        function getDesamDetails() {
+            const input = document.getElementById('desamInput').value.toLowerCase().trim();
+            const resultArea = document.getElementById('resultArea');
+            
+            if (desamData[input]) {
+                const data = desamData[input];
+                document.getElementById('resName').innerText = data.name;
+                document.getElementById('resMoolavar').innerText = data.moolavar;
+                document.getElementById('resUtsavar').innerText = data.utsavar;
+                document.getElementById('resThayar').innerText = data.thayar;
+                document.getElementById('resPushkarani').innerText = data.pushkarani;
+                document.getElementById('resVimaanam').innerText = data.vimaanam;
+                document.getElementById('resAzhwars').innerText = data.azhwars;
+                
+                resultArea.style.display = 'block';
+            } else {
+                alert("Adiyen, Shethram not found in sample database. Try 'Srirangam'!");
+            }
+        }
+    </script>
+</body>
+</html>
